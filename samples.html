@@ -1,0 +1,2354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Hugo 0.66.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,600" rel="stylesheet" type="text/css"> -->
+  <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css"> -->
+  <!-- <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="../css/custom.css"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="alternate" href="index.xml" type="application/rss+xml" title="Speech Research">
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+  <title>Exploiting Vulnerabilities in Speech Translation Systems through Targeted Adversarial Attacks</title>
+
+  <style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        padding: 8px;
+        text-align: center;
+        border: none; 
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    th {padding-bottom: 4px;}
+     tr.transcript > td {
+       font-style: italic;
+       font-size: 11pt;
+       color: #222;
+       padding: 2px 3px 15px;
+       vertical-align: top;
+     }
+
+
+    .framework-preview {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        display: block;
+    }
+    .pdf-link {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+
+    .custom-table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        font-size: 0.9em !important;
+    }
+    .custom-table th,
+    .custom-table td {
+        padding: 6px !important;
+        text-align: center !important;
+        border: none !important;
+    }
+    .custom-table th {
+        background-color: #f2f2f2 !important;
+        font-size: 0.95em !important;
+    }
+    .custom-table .col-1,
+    .custom-table .col-2 {
+        width: 12% !important;
+    }
+    .custom-table .col-3,
+    .custom-table .col-4 {
+        width: 28% !important;
+        font-size: 0.85em !important; 
+    }
+    .custom-table .col-5 {
+        width: 20% !important;
+    }
+
+    .small-audio {
+        width: 220px;
+        height: 60px;
+    }
+
+    .merged-cell {
+      vertical-align: top;
+      padding-top: 8px;
+    }
+    
+    .merged-cell p {
+      margin: 5px 0;
+      font-size: 14px;
+      text-align: left;
+    }
+    
+    .merged-cell .small-audio {
+      margin-bottom: 10px;
+    }
+  </style>
+
+</head>
+
+
+<!-- <style>
+  .line-divider {
+    border-bottom: 1px solid black;
+    margin-bottom: 5px;
+  }
+</style> -->
+  
+<body rightmargin="150" leftmargin="150" topmargin="100" bottommargin="100" line-height:160%>
+  <!-- <font size="5"> -->
+
+    <div class="container">
+
+      <header role="banner">
+
+      </header>
+      <main role="main">
+        <article itemscope itemtype="https://schema.org/BlogPosting">
+          <br>
+          <h1 itemprop="headline" align="center">
+            <font color="000093" size="7">Exploiting Vulnerabilities in Speech Translation Systems through Targeted Adversarial Attacks
+            </font>
+          </h1>
+          <br>
+
+      
+
+<!--           <p style="line-height:1" align="center"><b><font color="061E61">Anonymous</b></p> -->
+              <p align="center" style="font-size: 32px;"><b><font color="061E61">Anonymous</font></b></p>
+
+              <section itemprop="entry-text" style="font-size: 18px;">
+                <br>
+                <div class="container">
+                  <center>
+                    <p style="font-size: 28px;"><a href="https://github.com/Adv-ST/source_code_of_advst">[Code]</a></p>
+                  </center>
+                </div>
+                       
+            
+            <!-- <br> -->
+            <!-- <h2 id="pipeline">
+              <font color="000093">Pipeline</font>
+            </h2> -->
+            <!-- <p style="text-align: justify;"> -->
+            
+              <!-- <figure>
+                <p align="center"><img src="fig2_v2.png" width="100%" class="center" /></p>
+              </figure> -->
+<!-- ################################################################################################################################################################################# -->
+              <!-- <embed src="figure/attack-overview-new-2.pdf" type="application/pdf" width="100%" height="600px" /> -->
+              <!-- <div class="pdf-container">
+                <iframe src="figure/attack-overview-new-2.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf"></iframe>
+              </div> -->
+              <!-- <p class="pdf-link">
+                  <a href="figure/attack-overview-new-2.pdf" target="_blank">Attack overview PDF</a>
+              </p> -->
+              <!-- <figure>
+                <p align="center"><img src="figure/attack-overview-new-2.pdf" width="100%" class="center" /></p>
+              </figure> -->
+              <br>
+              <p>We provide some adversarial music/speech demos here, along with their corresponding translation results.</p>
+              <br>
+              <h2 id="adversarial-music">
+                <font color="000093">Adversarial Music</font>
+              </h2>
+              <br>
+              
+              <h4 id="attack-seamless-large">
+                  <font color="0000FF">Attack Seamless Large</font>
+              </h4>
+              <table class="custom-table">
+                  <tr>
+                      <th>Adversarial Music</th>
+                      <th>Translate to</th>
+                      <th>Translated Text</th>
+                      <th>Corresponding English</th>
+                      <th>Translated Speech</th>
+                  </tr>
+                  <tr>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-Large/cqm-adv-409.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio><br>(Target: Are you insane?)
+                      </td>
+                      <td>English(Seen)</td>
+                      <td>"Are you crazy?"</td>
+                      <td>"Are you crazy?"</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-Large/eng_trans_cqm-adv-409.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td>Mandarin(Seen)</td>
+                      <td>"你是疯了吗?"</td>
+                      <td>"Are you insane?"</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-Large/cmn_trans_cqm-adv-409.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td>German(Seen)</td>
+                      <td>"Bist du verrückt?"</td>
+                      <td>"Are you insane?"</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-Large/deu_trans_cqm-adv-409.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td>French(Unseen)</td>
+                      <td>"Tu es folle ?"</td>
+                      <td>"Are you insane?"</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-Large/fra_trans_cqm-adv-409.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td>Italian(Unseen)</td>
+                      <td>"Sei impazzito?"</td>
+                      <td>"Are you insane?"</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-Large/ita_trans_cqm-adv-409.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td>Spanish(Unseen)</td>
+                      <td>"¿Estás loco? ¿Qué estás haciendo?"</td>
+                      <td>"Are you insane? What are you doing?"</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-Large/spa_trans_cqm-adv-409.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+              </table>
+
+              <!-- 2 -->
+              <table class="custom-table">
+                <tr>
+                    <th>Adversarial Music</th>
+                    <th>Translate to</th>
+                    <th>Translated Text</th>
+                    <th>Corresponding English</th>
+                    <th>Translated Speech</th>
+                </tr>
+                <tr>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-Large/hot-adv-818.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio><br>(Target: Who do you think you're talking to?)
+                    </td>
+                    <td>English(Seen)</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-Large/eng_trans_hot-adv-818.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Mandarin(Seen)</td>
+                    <td>"你认为你在跟谁说话?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-Large/cmn_trans_hot-adv-818.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>German(Seen)</td>
+                    <td>"Mit wem meinst du, sprichst du?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-Large/deu_trans_hot-adv-818.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>French(Unseen)</td>
+                    <td>"À qui pensez-vous que vous parlez ?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-Large/fra_trans_hot-adv-818.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Italian(Unseen)</td>
+                    <td>"Con chi pensi che stai parlando?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-Large/ita_trans_hot-adv-818.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Spanish(Unseen)</td>
+                    <td>"¿Con quién crees que estás hablando?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-Large/spa_trans_hot-adv-818.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+            </table>
+
+            <hr>
+              <br>
+
+              <h4 id="attack-seamless-expressive">
+                  <font color="0000FF">Attack Seamless Expressive</font>
+              </h4>
+              <table>
+                  <tr>
+                      <th>Adversarial Music</th>
+                      <th>Translate to</th>
+                      <th>Translated Text</th>
+                      <th>Corresponding English</th>
+                      <th>Translated Speech</th>
+                  </tr>
+                  <tr>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-Expressive/ord-adv-622.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio><br>(Target: Are you insane?)
+                      </td>
+                      <td>English(Seen)</td>
+                      <td>"Are you super dumb?"</td>
+                      <td>"Are you super dumb?"</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-Expressive/eng_trans_ord-adv-622.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td>Mandarin(Seen)</td>
+                      <td>"你疯了吗?"</td>
+                      <td>"Are you insane?"</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-Expressive/cmn_trans_ord-adv-622.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td>German(Seen)</td>
+                      <td>"Bist du verrückt?"</td>
+                      <td>"Are you insane?"</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-Expressive/deu_trans_ord-adv-622.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td>French(Unseen)</td>
+                      <td>"Êtes-vous en train de vous battre ?"</td>
+                      <td>"Are you fighting?"</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-Expressive/fra_trans_ord-adv-622.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td>Italian(Unseen)</td>
+                      <td>"Sei impazzito?"</td>
+                      <td>"Are you insane?"</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-Expressive/ita_trans_ord-adv-622.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td>Spanish(Unseen)</td>
+                      <td>"¿Estás loco, Brendan? "</td>
+                      <td>"Are you insane, Brendan? "</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-Expressive/spa_trans_ord-adv-622.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+              </table>
+
+              <!-- 2 -->
+              <table>
+                <tr>
+                    <th>Adversarial Music</th>
+                    <th>Translate to</th>
+                    <th>Translated Text</th>
+                    <th>Corresponding English</th>
+                    <th>Translated Speech</th>
+                </tr>
+                <tr>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-Expressive/mal-adv-1511.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio><br>(Target: Who do you think you're talking to?)
+                    </td>
+                    <td>English(Seen)</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-Expressive/eng_trans_mal-adv-1511.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Mandarin(Seen)</td>
+                    <td>"你认为你在和谁说话?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-Expressive/cmn_trans_mal-adv-1511.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>German(Seen)</td>
+                    <td>"Mit wem glaubst du das zu sagen?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-Expressive/deu_trans_mal-adv-1511.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>French(Unseen)</td>
+                    <td>"Avec qui tu crois que tu es en train de parler ?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-Expressive/fra_trans_mal-adv-1511.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Italian(Unseen)</td>
+                    <td>"Con chi credi di stare parlando?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-Expressive/ita_trans_mal-adv-1511.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Spanish(Unseen)</td>
+                    <td>"¿Con quién crees que estás hablando?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-Expressive/spa_trans_mal-adv-1511.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+            </table>
+
+
+            <hr>
+
+              <br>
+              <h4 id="attack-seamless-m4tv2">
+                  <font color="0000FF">Attack Seamless M4tv2</font>
+              </h4>
+              <table>
+                  <tr>
+                      <th>Adversarial Music</th>
+                      <th>Translate to</th>
+                      <th>Translated Text</th>
+                      <th>Corresponding English</th>
+                      <th>Translated Speech</th>
+                  </tr>
+                  <tr>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-M4tv2/cos-adv-502.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio><br>(Target: Are you insane?)
+                      </td>
+                      <td>English(Seen)</td>
+                      <td>"Are you out of your mind?"</td>
+                      <td>"Are you out of your mind?"</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-M4tv2/eng_trans_cos-adv-502.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td>Mandarin(Seen)</td>
+                      <td>"你疯了吗?"</td>
+                      <td>"Are you insane?"</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-M4tv2/cmn_trans_cos-adv-502.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td>German(Seen)</td>
+                      <td>"Bist du verrückt?"</td>
+                      <td>"Are you insane?"</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-M4tv2/deu_trans_cos-adv-502.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td>French(Unseen)</td>
+                      <td>"Tu es folle ! Tu es folle !"</td>
+                      <td>"You're crazy! You're crazy!"</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-M4tv2/fra_trans_cos-adv-502.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td>Italian(Unseen)</td>
+                      <td>"Puzza di lanto!"</td>
+                      <td>"It stinks of lanto!"</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-M4tv2/ita_trans_cos-adv-502.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td>Spanish(Unseen)</td>
+                      <td>"¿Estás loco? ¿Estás loco? "</td>
+                      <td>"Are you insane? Are you insane?"</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-M4tv2/spa_trans_cos-adv-502.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+              </table>
+
+              <!-- 2 -->
+              <table>
+                <tr>
+                    <th>Adversarial Music</th>
+                    <th>Translate to</th>
+                    <th>Translated Text</th>
+                    <th>Corresponding English</th>
+                    <th>Translated Speech</th>
+                </tr>
+                <tr>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-M4tv2/jgd-adv-1517.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio><br>(Target: Who do you think you're talking to?)
+                    </td>
+                    <td>English(Seen)</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-M4tv2/eng_trans_jgd-adv-1517.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Mandarin(Seen)</td>
+                    <td>"你认为你在跟谁说话?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-M4tv2/cmn_trans_jgd-adv-1517.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>German(Seen)</td>
+                    <td>"Mit wem denkst du, sprichst du?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-M4tv2/deu_trans_jgd-adv-1517.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>French(Unseen)</td>
+                    <td>"Tu penses avec qui tu parles?"</td>
+                    <td>"Do you think about who you're talking to?"</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-M4tv2/fra_trans_jgd-adv-1517.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Italian(Unseen)</td>
+                    <td>"Con chi pensi che stai parlando?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-M4tv2/ita_trans_jgd-adv-1517.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Spanish(Unseen)</td>
+                    <td>"¿Con quién crees que hablas?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-M4tv2/spa_trans_jgd-adv-1517.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+            </table>
+
+            <hr>
+
+              <br>
+              <h4 id="attack-seamless-medium">
+                  <font color="0000FF">Attack Seamless Medium</font>
+              </h4>
+              <table>
+                  <tr>
+                      <th>Adversarial Music</th>
+                      <th>Translate to</th>
+                      <th>Translated Text</th>
+                      <th>Corresponding English</th>
+                      <th>Translated Speech</th>
+                  </tr>
+                  <tr>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-Medium/gll-adv-566.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio><br>(Target: Are you insane?)
+                      </td>
+                      <td>English(Seen)</td>
+                      <td>"Are you a maniac?"</td>
+                      <td>"Are you a maniac?"</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-Medium/eng_trans_gll-adv-566.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td>Mandarin(Seen)</td>
+                      <td>"你是疯了吗?"</td>
+                      <td>"Are you insane?"</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-Medium/cmn_trans_gll-adv-566.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td>German(Seen)</td>
+                      <td>"Sind Sie verrückt?"</td>
+                      <td>"Are you insane?"</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-Medium/deu_trans_gll-adv-566.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td>French(Unseen)</td>
+                      <td>"Vous êtes en panne ?"</td>
+                      <td>"Are you out of order?"</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-Medium/fra_trans_gll-adv-566.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td>Italian(Unseen)</td>
+                      <td>"Sei un manicista?"</td>
+                      <td>"Are you a manicist?"</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-Medium/ita_trans_gll-adv-566.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td>Spanish(Unseen)</td>
+                      <td>"¿Te has vuelto loco?"</td>
+                      <td>"Have you lost your mind?"</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="music/Seamless-Medium/spa_trans_gll-adv-566.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+              </table>
+
+              <!-- 2 -->
+              <table>
+                <tr>
+                    <th>Adversarial Music</th>
+                    <th>Translate to</th>
+                    <th>Translated Text</th>
+                    <th>Corresponding English</th>
+                    <th>Translated Speech</th>
+                </tr>
+                <tr>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-Medium/wut-adv-252.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio><br>(Target: Who do you think you're talking to?)
+                    </td>
+                    <td>English(Seen)</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-Medium/eng_trans_wut-adv-252.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Mandarin(Seen)</td>
+                    <td>"你认为你和谁在说话?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-Medium/cmn_trans_wut-adv-252.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>German(Seen)</td>
+                    <td>"Mit wem glaubst du, du sprichst?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-Medium/deu_trans_wut-adv-252.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>French(Unseen)</td>
+                    <td>"À qui pensez-vous que vous parlez ?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-Medium/fra_trans_wut-adv-252.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Italian(Unseen)</td>
+                    <td>"Con chi credi di parlare?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-Medium/ita_trans_wut-adv-252.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Spanish(Unseen)</td>
+                    <td>"¿Con quién crees que estás hablando?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="music/More-generated-music/Seamless-Medium/spa_trans_wut-adv-252.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+            </table>
+
+
+
+            <hr>
+
+              <br>
+              <h4 id="attack-canary">
+                  <font color="0000FF">Attack Canary</font>
+              </h4>
+              <table>
+                  <tr>
+                      <th>Adversarial Music</th>
+                      <th>Translate to</th>
+                      <th>Translated Text</th>
+                      <th>Corresponding English</th>
+                  </tr>
+                  <tr>
+                      <td><audio controls="controls"  class="small-audio">
+                        <source src="music/Canary/zws-adv-580.wav" autoplay />
+                        Your browser does not support the audio element.
+                        </audio><br>(Target: Are you insane?)
+                      </td>
+                      <td>English(Seen)</td>
+                      <td>"Are you crazy?"</td>
+                      <td>"Are you crazy?"</td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td>French(Seen)</td>
+                      <td>"Êtes-vous fou ?"</td>
+                      <td>"Are you insane?"</td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td>German(Seen)</td>
+                      <td>"Bist du verrückt?"</td>
+                      <td>"Are you insane?"</td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td>Spanish(Unseen)</td>
+                      <td>"¿Estás bien loco?"</td>
+                      <td>"Are you insane?"</td>
+                  </tr>
+              </table>
+
+              <!-- 2 -->
+              <table>
+                <tr>
+                    <th>Adversarial Music</th>
+                    <th>Translate to</th>
+                    <th>Translated Text</th>
+                    <th>Corresponding English</th>
+                </tr>
+                <tr>
+                    <td><audio controls="controls"  class="small-audio">
+                      <source src="music/More-generated-music/Canary/jhu-adv-216.wav" autoplay />
+                      Your browser does not support the audio element.
+                      </audio><br>(Target: Who do you think you're talking to?)
+                    </td>
+                    <td>English(Seen)</td>
+                    <td>"Who do you think you are talking to?"</td>
+                    <td>"Who do you think you are talking to?"</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>French(Seen)</td>
+                    <td>"A qui pensez-vous que vous parlez ?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>German(Seen)</td>
+                    <td>"Mit wem denkst du, dass du redest?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Spanish(Unseen)</td>
+                    <td>"¿A quién crees que estás hablando?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                </tr>
+            </table>
+
+
+            <hr>
+              
+              <!-- <h2 id="more-generated-music">
+                  <font color="0000FF">More Generated Music</font>
+              </h2>      -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <br>
+              <br>
+              <h2 id="adversarial-perturbation">
+                <font color="000093">Adversarial Perturbation</font>
+              </h2>
+              <br>
+              
+              <h4 id="attack-seamless-large">
+                  <font color="0000FF">Attack Seamless Large</font>
+              </h4>
+              <table class="custom-table">
+                  <tr>
+                      <th>Adversarial Speech</th>
+                      <th>Translate to</th>
+                      <th>Translated Text</th>
+                      <th>Corresponding English</th>
+                      <th>Translated Speech</th>
+                  </tr>
+                  <tr>
+                      <td rowspan="6" class="merged-cell">
+                          <audio controls="controls"  class="small-audio">
+                              <source src="speech/Seamless-Large/eps0.01/lsx-adv-5000.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                          <br><p align="left" style="font-size: 18px;">&epsilon; = 0.01</p>
+                          <p align="left" style="font-size: 18px;">Original: "He's delighted too with the new premises."</p>
+                          <p align="left" style="font-size: 18px;">Target: "Shame on you."</p>
+                      </td>
+                      <td>English(Seen)</td>
+                      <td>"You should be ashamed of yourself."</td>
+                      <td>"You should be ashamed of yourself."</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="speech/Seamless-Large/eps0.01/eng_trans_lsx-adv-5000.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+                  <tr>
+                      <!-- <td></td> -->
+                      <td>Mandarin(Seen)</td>
+                      <td>"你应该感到羞耻."</td>
+                      <td>"You should be ashamed."</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="speech/Seamless-Large/eps0.01/cmn_trans_lsx-adv-5000.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+                  <tr>
+                      <!-- <td></td> -->
+                      <td>German(Seen)</td>
+                      <td>"Schämen Sie sich."</td>
+                      <td>"Shame on you."</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="speech/Seamless-Large/eps0.01/deu_trans_lsx-adv-5000.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+                  <tr>
+                      <!-- <td></td> -->
+                      <td>French(Seen)</td>
+                      <td>"Vous devriez avoir honte."</td>
+                      <td>"Shame on you."</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="speech/Seamless-Large/eps0.01/fra_trans_lsx-adv-5000.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+                  <tr>
+                      <!-- <td></td> -->
+                      <td>Italian(Unseen)</td>
+                      <td>"Dovresti vergognarti."</td>
+                      <td>"Shame on you."</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="speech/Seamless-Large/eps0.01/ita_trans_lsx-adv-5000.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+                  <tr>
+                      <!-- <td></td> -->
+                      <td>Spanish(Unseen)</td>
+                      <td>"¿Te avergonzarías?"</td>
+                      <td>"Would you be ashamed?"</td>
+                      <td>
+                          <audio controls="controls"  class="small-audio">
+                              <source src="speech/Seamless-Large/eps0.01/spa_trans_lsx-adv-5000.wav" autoplay />
+                              Your browser does not support the audio element.
+                          </audio>
+                      </td>
+                  </tr>
+              </table>
+              <br>
+          
+              <!-- ################################################################################################################################################################################# -->
+              <table class="custom-table">
+                <tr>
+                    <th>Adversarial Speech</th>
+                    <th>Translate to</th>
+                    <th>Translated Text</th>
+                    <th>Corresponding English</th>
+                    <th>Translated Speech</th>
+                </tr>
+                <tr>
+                    <td rowspan="6" class="merged-cell">
+                        <audio controls="controls"  class="small-audio">
+                            <source src="speech/Seamless-Large/eps0.1/mrv-adv-2565.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                        <br><p align="left" style="font-size: 18px;">&epsilon; = 0.1</p>
+                        <p align="left" style="font-size: 18px;">Original: "He's delighted too with the new premises."</p>
+                        <p align="left" style="font-size: 18px;">Target: "Don't waste my time anymore."</p>
+                    </td>
+                    <td>English(Seen)</td>
+                    <td>"Don't waste my time anymore."</td>
+                      <td>"Don't waste my time anymore."</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="speech/Seamless-Large/eps0.1/eng_trans_mrv-adv-2565.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- <td></td> -->
+                    <td>Mandarin(Seen)</td>
+                    <td>"不要再浪费我的时间了."</td>
+                      <td>"Don't waste my time anymore."</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="speech/Seamless-Large/eps0.1/cmn_trans_mrv-adv-2565.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- <td></td> -->
+                    <td>German(Seen)</td>
+                    <td>"Verschwenden Sie meine Zeit nicht mehr."</td>
+                      <td>"Don't waste my time anymore."</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="speech/Seamless-Large/eps0.1/deu_trans_mrv-adv-2565.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- <td></td> -->
+                    <td>French(Seen)</td>
+                    <td>"Ne me fais plus perdre mon temps."</td>
+                      <td>"Don't waste my time anymore."</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="speech/Seamless-Large/eps0.1/fra_trans_mrv-adv-2565.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- <td></td> -->
+                    <td>Italian(Unseen)</td>
+                    <td>"Non sprecare più il mio tempo."</td>
+                      <td>"Don't waste my time anymore."</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="speech/Seamless-Large/eps0.1/ita_trans_mrv-adv-2565.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- <td></td> -->
+                    <td>Spanish(Unseen)</td>
+                    <td>"No vuelvas a desperdiciar mi tiempo."</td>
+                      <td>"Don't waste my time again."</td>
+                    <td>
+                        <audio controls="controls"  class="small-audio">
+                            <source src="speech/Seamless-Large/eps0.1/spa_trans_mrv-adv-2565.wav" autoplay />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+            </table>
+            <br>
+
+            <!-- ################################################################################################################################################################################# -->
+            <table class="custom-table">
+              <tr>
+                  <th>Adversarial Speech</th>
+                  <th>Translate to</th>
+                  <th>Translated Text</th>
+                  <th>Corresponding English</th>
+                  <th>Translated Speech</th>
+              </tr>
+              <tr>
+                  <td rowspan="6" class="merged-cell">
+                      <audio controls="controls"  class="small-audio">
+                          <source src="speech/Seamless-Large/eps0.5/wgl-adv-247.wav" autoplay />
+                          Your browser does not support the audio element.
+                      </audio>
+                      <br><p align="left" style="font-size: 18px;">&epsilon; = 0.5</p>
+                      <p align="left" style="font-size: 18px;">Original: "He's delighted too with the new premises."</p>
+                      <p align="left" style="font-size: 18px;">Target: "Who do you think you're talking to?"</p>
+                  </td>
+                  <td>English(Seen)</td>
+                  <td>"Who do you think you're talking to?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                  <td>
+                      <audio controls="controls"  class="small-audio">
+                          <source src="speech/Seamless-Large/eps0.5/eng_trans_wgl-adv-247.wav" autoplay />
+                          Your browser does not support the audio element.
+                      </audio>
+                  </td>
+              </tr>
+              <tr>
+                  <!-- <td></td> -->
+                  <td>Mandarin(Seen)</td>
+                  <td>"你认为你在跟谁说话?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                  <td>
+                      <audio controls="controls"  class="small-audio">
+                          <source src="speech/Seamless-Large/eps0.5/cmn_trans_wgl-adv-247.wav" autoplay />
+                          Your browser does not support the audio element.
+                      </audio>
+                  </td>
+              </tr>
+              <tr>
+                  <!-- <td></td> -->
+                  <td>German(Seen)</td>
+                  <td>"Mit wem glaubst du, sprichst du?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                  <td>
+                      <audio controls="controls"  class="small-audio">
+                          <source src="speech/Seamless-Large/eps0.5/deu_trans_wgl-adv-247.wav" autoplay />
+                          Your browser does not support the audio element.
+                      </audio>
+                  </td>
+              </tr>
+              <tr>
+                  <!-- <td></td> -->
+                  <td>French(Seen)</td>
+                  <td>"À qui pensez-vous que vous parlez ?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                  <td>
+                      <audio controls="controls"  class="small-audio">
+                          <source src="speech/Seamless-Large/eps0.5/fra_trans_wgl-adv-247.wav" autoplay />
+                          Your browser does not support the audio element.
+                      </audio>
+                  </td>
+              </tr>
+              <tr>
+                  <!-- <td></td> -->
+                  <td>Italian(Unseen)</td>
+                  <td>"Con chi pensi che stai parlando?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                  <td>
+                      <audio controls="controls"  class="small-audio">
+                          <source src="speech/Seamless-Large/eps0.5/ita_trans_wgl-adv-247.wav" autoplay />
+                          Your browser does not support the audio element.
+                      </audio>
+                  </td>
+              </tr>
+              <tr>
+                  <!-- <td></td> -->
+                  <td>Spanish(Unseen)</td>
+                  <td>"¿Con quién crees que estás hablando?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                  <td>
+                      <audio controls="controls"  class="small-audio">
+                          <source src="speech/Seamless-Large/eps0.5/spa_trans_wgl-adv-247.wav" autoplay />
+                          Your browser does not support the audio element.
+                      </audio>
+                  </td>
+              </tr>
+          </table>
+          <hr>
+
+          <br>
+          
+
+
+
+
+
+          <h4 id="attack-seamless-expressive">
+            <font color="0000FF">Attack Seamless Expressive</font>
+        </h4>
+        <table class="custom-table">
+            <tr>
+                <th>Adversarial Speech</th>
+                <th>Translate to</th>
+                <th>Translated Text</th>
+                <th>Corresponding English</th>
+                <th>Translated Speech</th>
+            </tr>
+            <tr>
+                <td rowspan="6" class="merged-cell">
+                    <audio controls="controls"  class="small-audio">
+                        <source src="speech/Seamless-Expressive/eps0.01/zzy-adv-5000.wav" autoplay />
+                        Your browser does not support the audio element.
+                    </audio>
+                    <br><p align="left" style="font-size: 18px;">&epsilon; = 0.01</p>
+                    <p align="left" style="font-size: 18px;">Original: "He's delighted too with the new premises."</p>
+                    <p align="left" style="font-size: 18px;">Target: "Shame on you."</p>
+                </td>
+                <td>English(Seen)</td>
+                <td>"You should be ashamed of yourself."</td>
+                <td>"You should be ashamed of yourself."</td>
+                <td>
+                    <audio controls="controls"  class="small-audio">
+                        <source src="speech/Seamless-Expressive/eps0.01/eng_trans_zzy-adv-5000.wav" autoplay />
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+            <tr>
+                <!-- <td></td> -->
+                <td>Mandarin(Seen)</td>
+                <td>"你们这两个人可可耻了."</td>
+                <td>"Shame on you two."</td>
+                <td>
+                    <audio controls="controls"  class="small-audio">
+                        <source src="speech/Seamless-Expressive/eps0.01/cmn_trans_zzy-adv-5000.wav" autoplay />
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+            <tr>
+                <!-- <td></td> -->
+                <td>German(Seen)</td>
+                <td>"Du solltest dich schämen, dass du dich so verärgert hast."</td>
+                <td>"You should be ashamed of yourself for being so upset."</td>
+                <td>
+                    <audio controls="controls"  class="small-audio">
+                        <source src="speech/Seamless-Expressive/eps0.01/deu_trans_zzy-adv-5000.wav" autoplay />
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+            <tr>
+                <!-- <td></td> -->
+                <td>French(Seen)</td>
+                <td>"Vous devriez être honteux de votre méchanceté."</td>
+                <td>"You should be ashamed of your wickedness."</td>
+                <td>
+                    <audio controls="controls"  class="small-audio">
+                        <source src="speech/Seamless-Expressive/eps0.01/fra_trans_zzy-adv-5000.wav" autoplay />
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+            <tr>
+                <!-- <td></td> -->
+                <td>Italian(Unseen)</td>
+                <td>"Ti vergogneresti di te stesso."</td>
+                <td>"You'd be ashamed of yourself."</td>
+                <td>
+                    <audio controls="controls"  class="small-audio">
+                        <source src="speech/Seamless-Expressive/eps0.01/ita_trans_zzy-adv-5000.wav" autoplay />
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+            <tr>
+                <!-- <td></td> -->
+                <td>Spanish(Unseen)</td>
+                <td>"Deberías estar avergonzado de tus malas premisas."</td>
+                <td>"You should be ashamed of your bad premises."</td>
+                <td>
+                    <audio controls="controls"  class="small-audio">
+                        <source src="speech/Seamless-Expressive/eps0.01/spa_trans_zzy-adv-5000.wav" autoplay />
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+        </table>
+        <br>
+    
+        <!-- ################################################################################################################################################################################# -->
+        <table class="custom-table">
+          <tr>
+              <th>Adversarial Speech</th>
+              <th>Translate to</th>
+              <th>Translated Text</th>
+              <th>Corresponding English</th>
+              <th>Translated Speech</th>
+          </tr>
+          <tr>
+              <td rowspan="6" class="merged-cell">
+                  <audio controls="controls"  class="small-audio">
+                      <source src="speech/Seamless-Expressive/eps0.1/qhr-adv-860.wav" autoplay />
+                      Your browser does not support the audio element.
+                  </audio>
+                  <br><p align="left" style="font-size: 18px;">&epsilon; = 0.1</p>
+                  <p align="left" style="font-size: 18px;">Original: "He's delighted too with the new premises."</p>
+                  <p align="left" style="font-size: 18px;">Target: "Who do you think you're talking to?"</p>
+              </td>
+              <td>English(Seen)</td>
+              <td>"Who do you think you're talking to?"</td>
+              <td>"Who do you think you're talking to?"</td>
+              <td>
+                  <audio controls="controls"  class="small-audio">
+                      <source src="speech/Seamless-Expressive/eps0.1/eng_trans_qhr-adv-860.wav" autoplay />
+                      Your browser does not support the audio element.
+                  </audio>
+              </td>
+          </tr>
+          <tr>
+              <!-- <td></td> -->
+              <td>Mandarin(Seen)</td>
+              <td>"你认为你在和谁说话? "</td>
+              <td>"Who do you think you're talking to?"</td>
+              <td>
+                  <audio controls="controls"  class="small-audio">
+                      <source src="speech/Seamless-Expressive/eps0.1/cmn_trans_qhr-adv-860.wav" autoplay />
+                      Your browser does not support the audio element.
+                  </audio>
+              </td>
+          </tr>
+          <tr>
+              <!-- <td></td> -->
+              <td>German(Seen)</td>
+              <td>"Mit wem denkst du, sprichst du mit?"</td>
+              <td>"Who do you think you're talking to?"</td>
+              <td>
+                  <audio controls="controls"  class="small-audio">
+                      <source src="speech/Seamless-Expressive/eps0.1/deu_trans_qhr-adv-860.wav" autoplay />
+                      Your browser does not support the audio element.
+                  </audio>
+              </td>
+          </tr>
+          <tr>
+              <!-- <td></td> -->
+              <td>French(Seen)</td>
+              <td>"Tu crois que tu parles à qui ?"</td>
+              <td>"Who do you think you're talking to?"</td>
+              <td>
+                  <audio controls="controls"  class="small-audio">
+                      <source src="speech/Seamless-Expressive/eps0.1/fra_trans_qhr-adv-860.wav" autoplay />
+                      Your browser does not support the audio element.
+                  </audio>
+              </td>
+          </tr>
+          <tr>
+              <!-- <td></td> -->
+              <td>Italian(Unseen)</td>
+              <td>"Con chi pensi che stia parlando?"</td>
+              <td>"Who do you think he's talking to?"</td>
+              <td>
+                  <audio controls="controls"  class="small-audio">
+                      <source src="speech/Seamless-Expressive/eps0.1/ita_trans_qhr-adv-860.wav" autoplay />
+                      Your browser does not support the audio element.
+                  </audio>
+              </td>
+          </tr>
+          <tr>
+              <!-- <td></td> -->
+              <td>Spanish(Unseen)</td>
+              <td>"¿Con quién crees que estás hablando?"</td>
+              <td>"Who do you think you're talking to?"</td>
+              <td>
+                  <audio controls="controls"  class="small-audio">
+                      <source src="speech/Seamless-Expressive/eps0.1/spa_trans_qhr-adv-860.wav" autoplay />
+                      Your browser does not support the audio element.
+                  </audio>
+              </td>
+          </tr>
+      </table>
+      <br>
+
+      <!-- ################################################################################################################################################################################# -->
+      <table class="custom-table">
+        <tr>
+            <th>Adversarial Speech</th>
+            <th>Translate to</th>
+            <th>Translated Text</th>
+            <th>Corresponding English</th>
+            <th>Translated Speech</th>
+        </tr>
+        <tr>
+            <td rowspan="6" class="merged-cell">
+                <audio controls="controls"  class="small-audio">
+                    <source src="speech/Seamless-Expressive/eps0.5/rlc-adv-2669.wav" autoplay />
+                    Your browser does not support the audio element.
+                </audio>
+                <br><p align="left" style="font-size: 18px;">&epsilon; = 0.5</p>
+                <p align="left" style="font-size: 18px;">Original: "He's delighted too with the new premises."</p>
+                <p align="left" style="font-size: 18px;">Target: "Are you insane?"</p>
+            </td>
+            <td>English(Seen)</td>
+            <td>"Are you insane, please?"</td>
+            <td>"Are you insane, please?"</td>
+            <td>
+                <audio controls="controls"  class="small-audio">
+                    <source src="speech/Seamless-Expressive/eps0.5/eng_trans_rlc-adv-2669.wav" autoplay />
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+        <tr>
+            <!-- <td></td> -->
+            <td>Mandarin(Seen)</td>
+            <td>"你疯了吗? "</td>
+            <td>"Are you crazy?"</td>
+            <td>
+                <audio controls="controls"  class="small-audio">
+                    <source src="speech/Seamless-Expressive/eps0.5/cmn_trans_rlc-adv-2669.wav" autoplay />
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+        <tr>
+            <!-- <td></td> -->
+            <td>German(Seen)</td>
+            <td>"Bist du verrückt, oder bist du verrückt?"</td>
+            <td>"Are you crazy, or are you crazy?"</td>
+            <td>
+                <audio controls="controls"  class="small-audio">
+                    <source src="speech/Seamless-Expressive/eps0.5/deu_trans_rlc-adv-2669.wav" autoplay />
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+        <tr>
+            <!-- <td></td> -->
+            <td>French(Seen)</td>
+            <td>"Vous êtes fou, s'il vous plaît ?"</td>
+            <td>"Are you crazy, please?"</td>
+            <td>
+                <audio controls="controls"  class="small-audio">
+                    <source src="speech/Seamless-Expressive/eps0.5/fra_trans_rlc-adv-2669.wav" autoplay />
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+        <tr>
+            <!-- <td></td> -->
+            <td>Italian(Unseen)</td>
+            <td>"Sei impazzito, ti prego?"</td>
+            <td>"Are you crazy, please?"</td>
+            <td>
+                <audio controls="controls"  class="small-audio">
+                    <source src="speech/Seamless-Expressive/eps0.5/ita_trans_rlc-adv-2669.wav" autoplay />
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+        <tr>
+            <!-- <td></td> -->
+            <td>Spanish(Unseen)</td>
+            <td>"¿Estás loco? ¿Estás loco por favor?"</td>
+            <td>"Are you crazy? Are you crazy please?"</td>
+            <td>
+                <audio controls="controls"  class="small-audio">
+                    <source src="speech/Seamless-Expressive/eps0.5/spa_trans_rlc-adv-2669.wav" autoplay />
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+    </table>
+
+
+
+
+
+
+    <hr>
+
+    <br>
+
+
+    <h4 id="attack-seamless-m4tv2">
+      <font color="0000FF">Attack Seamless M4tv2</font>
+  </h4>
+  <table class="custom-table">
+      <tr>
+          <th>Adversarial Speech</th>
+          <th>Translate to</th>
+          <th>Translated Text</th>
+          <th>Corresponding English</th>
+          <th>Translated Speech</th>
+      </tr>
+      <tr>
+          <td rowspan="6" class="merged-cell">
+              <audio controls="controls"  class="small-audio">
+                  <source src="speech/Seamless-M4tv2/eps0.01/itt-adv-5000.wav" autoplay />
+                  Your browser does not support the audio element.
+              </audio>
+              <br><p align="left" style="font-size: 18px;">&epsilon; = 0.01</p>
+              <p align="left" style="font-size: 18px;">Original: "He's delighted too with the new premises."</p>
+              <p align="left" style="font-size: 18px;">Target: "Who do you think you're talking to?"</p>
+          </td>
+          <td>English(Seen)</td>
+          <td>"Who do you think you're talking to?"</td>
+          <td>"Who do you think you're talking to?"</td>
+          <td>
+              <audio controls="controls"  class="small-audio">
+                  <source src="speech/Seamless-M4tv2/eps0.01/eng_trans_itt-adv-5000.wav" autoplay />
+                  Your browser does not support the audio element.
+              </audio>
+          </td>
+      </tr>
+      <tr>
+          <!-- <td></td> -->
+          <td>Mandarin(Seen)</td>
+          <td>"他选择了你和谁说话?"</td>
+          <td>"Who did he choose you to talk to?"</td>
+          <td>
+              <audio controls="controls"  class="small-audio">
+                  <source src="speech/Seamless-M4tv2/eps0.01/cmn_trans_itt-adv-5000.wav" autoplay />
+                  Your browser does not support the audio element.
+              </audio>
+          </td>
+      </tr>
+      <tr>
+          <!-- <td></td> -->
+          <td>German(Seen)</td>
+          <td>"Mit wem soll er jetzt sprechen?"</td>
+          <td>"Who is he supposed to talk to now?"</td>
+          <td>
+              <audio controls="controls"  class="small-audio">
+                  <source src="speech/Seamless-M4tv2/eps0.01/deu_trans_itt-adv-5000.wav" autoplay />
+                  Your browser does not support the audio element.
+              </audio>
+          </td>
+      </tr>
+      <tr>
+          <!-- <td></td> -->
+          <td>French(Seen)</td>
+          <td>"Vous êtes sûre de qui vous parlez ?"</td>
+          <td>"Are you sure who you are talking about?"</td>
+          <td>
+              <audio controls="controls"  class="small-audio">
+                  <source src="speech/Seamless-M4tv2/eps0.01/fra_trans_itt-adv-5000.wav" autoplay />
+                  Your browser does not support the audio element.
+              </audio>
+          </td>
+      </tr>
+      <tr>
+          <!-- <td></td> -->
+          <td>Italian(Unseen)</td>
+          <td>"Con chi sta parlando, secondo lei?"</td>
+          <td>"Who do you think he's talking to?"</td>
+          <td>
+              <audio controls="controls"  class="small-audio">
+                  <source src="speech/Seamless-M4tv2/eps0.01/ita_trans_itt-adv-5000.wav" autoplay />
+                  Your browser does not support the audio element.
+              </audio>
+          </td>
+      </tr>
+      <tr>
+          <!-- <td></td> -->
+          <td>Spanish(Unseen)</td>
+          <td>"¿A quién crees que estás hablando?"</td>
+          <td>"Who do you think you're talking to?
+            "</td>
+          <td>
+              <audio controls="controls"  class="small-audio">
+                  <source src="speech/Seamless-M4tv2/eps0.01/spa_trans_itt-adv-5000.wav" autoplay />
+                  Your browser does not support the audio element.
+              </audio>
+          </td>
+      </tr>
+  </table>
+  <br>
+
+  <!-- ################################################################################################################################################################################# -->
+  <table class="custom-table">
+    <tr>
+        <th>Adversarial Speech</th>
+        <th>Translate to</th>
+        <th>Translated Text</th>
+        <th>Corresponding English</th>
+        <th>Translated Speech</th>
+    </tr>
+    <tr>
+        <td rowspan="6" class="merged-cell">
+            <audio controls="controls"  class="small-audio">
+                <source src="speech/Seamless-M4tv2/eps0.1/wfj-adv-3308.wav" autoplay />
+                Your browser does not support the audio element.
+            </audio>
+            <br><p align="left" style="font-size: 18px;">&epsilon; = 0.1</p>
+            <p align="left" style="font-size: 18px;">Original: "He's delighted too with the new premises."</p>
+            <p align="left" style="font-size: 18px;">Target: "Shame on you."</p>
+        </td>
+        <td>English(Seen)</td>
+        <td>"You should be ashamed."</td>
+        <td>"You should be ashamed."</td>
+        <td>
+            <audio controls="controls"  class="small-audio">
+                <source src="speech/Seamless-M4tv2/eps0.1/eng_trans_wfj-adv-3308.wav" autoplay />
+                Your browser does not support the audio element.
+            </audio>
+        </td>
+    </tr>
+    <tr>
+        <!-- <td></td> -->
+        <td>Mandarin(Seen)</td>
+        <td>"你应该感到羞愧."</td>
+        <td>"You should be ashamed."</td>
+        <td>
+            <audio controls="controls"  class="small-audio">
+                <source src="speech/Seamless-M4tv2/eps0.1/cmn_trans_wfj-adv-3308.wav" autoplay />
+                Your browser does not support the audio element.
+            </audio>
+        </td>
+    </tr>
+    <tr>
+        <!-- <td></td> -->
+        <td>German(Seen)</td>
+        <td>"Scham dich um dich."</td>
+        <td>"Shame on you."</td>
+        <td>
+            <audio controls="controls"  class="small-audio">
+                <source src="speech/Seamless-M4tv2/eps0.1/deu_trans_wfj-adv-3308.wav" autoplay />
+                Your browser does not support the audio element.
+            </audio>
+        </td>
+    </tr>
+    <tr>
+        <!-- <td></td> -->
+        <td>French(Seen)</td>
+        <td>"Vous devriez avoir honte de vous."</td>
+        <td>"Shame on you."</td>
+        <td>
+            <audio controls="controls"  class="small-audio">
+                <source src="speech/Seamless-M4tv2/eps0.1/fra_trans_wfj-adv-3308.wav" autoplay />
+                Your browser does not support the audio element.
+            </audio>
+        </td>
+    </tr>
+    <tr>
+        <!-- <td></td> -->
+        <td>Italian(Unseen)</td>
+        <td>"Si dovrebbe vergognarvi."</td>
+        <td>"Shame on you."</td>
+        <td>
+            <audio controls="controls"  class="small-audio">
+                <source src="speech/Seamless-M4tv2/eps0.1/ita_trans_wfj-adv-3308.wav" autoplay />
+                Your browser does not support the audio element.
+            </audio>
+        </td>
+    </tr>
+    <tr>
+        <!-- <td></td> -->
+        <td>Spanish(Unseen)</td>
+        <td>"Usted debe sentirse avergonzado."</td>
+        <td>"You must feel ashamed."</td>
+        <td>
+            <audio controls="controls"  class="small-audio">
+                <source src="speech/Seamless-M4tv2/eps0.1/spa_trans_wfj-adv-3308.wav" autoplay />
+                Your browser does not support the audio element.
+            </audio>
+        </td>
+    </tr>
+</table>
+<br>
+
+<!-- ################################################################################################################################################################################# -->
+<table class="custom-table">
+  <tr>
+      <th>Adversarial Speech</th>
+      <th>Translate to</th>
+      <th>Translated Text</th>
+      <th>Corresponding English</th>
+      <th>Translated Speech</th>
+  </tr>
+  <tr>
+      <td rowspan="6" class="merged-cell">
+          <audio controls="controls"  class="small-audio">
+              <source src="speech/Seamless-M4tv2/eps0.5/fbg-adv-408.wav" autoplay />
+              Your browser does not support the audio element.
+          </audio>
+          <br><p align="left" style="font-size: 18px;">&epsilon; = 0.5</p>
+          <p align="left" style="font-size: 18px;">Original: "He's delighted too with the new premises."</p>
+          <p align="left" style="font-size: 18px;">Target: "Are you insane?"</p>
+      </td>
+      <td>English(Seen)</td>
+      <td>"Are you insane?"</td>
+      <td>"Are you insane?"</td>
+      <td>
+          <audio controls="controls"  class="small-audio">
+              <source src="speech/Seamless-M4tv2/eps0.5/eng_trans_fbg-adv-408.wav" autoplay />
+              Your browser does not support the audio element.
+          </audio>
+      </td>
+  </tr>
+  <tr>
+      <!-- <td></td> -->
+      <td>Mandarin(Seen)</td>
+      <td>"你疯了吗?"</td>
+      <td>"Are you insane?"</td>
+      <td>
+          <audio controls="controls"  class="small-audio">
+              <source src="speech/Seamless-M4tv2/eps0.5/cmn_trans_fbg-adv-408.wav" autoplay />
+              Your browser does not support the audio element.
+          </audio>
+      </td>
+  </tr>
+  <tr>
+      <!-- <td></td> -->
+      <td>German(Seen)</td>
+      <td>"Bist du verrückt?"</td>
+      <td>"Are you insane?"</td>
+      <td>
+          <audio controls="controls"  class="small-audio">
+              <source src="speech/Seamless-M4tv2/eps0.5/deu_trans_fbg-adv-408.wav" autoplay />
+              Your browser does not support the audio element.
+          </audio>
+      </td>
+  </tr>
+  <tr>
+      <!-- <td></td> -->
+      <td>French(Seen)</td>
+      <td>"Vous êtes dingue ?"</td>
+      <td>"Are you insane?"</td>
+      <td>
+          <audio controls="controls"  class="small-audio">
+              <source src="speech/Seamless-M4tv2/eps0.5/fra_trans_fbg-adv-408.wav" autoplay />
+              Your browser does not support the audio element.
+          </audio>
+      </td>
+  </tr>
+  <tr>
+      <!-- <td></td> -->
+      <td>Italian(Unseen)</td>
+      <td>"Sei un pazzo?"</td>
+      <td>"Are you insane?"</td>
+      <td>
+          <audio controls="controls"  class="small-audio">
+              <source src="speech/Seamless-M4tv2/eps0.5/ita_trans_fbg-adv-408.wav" autoplay />
+              Your browser does not support the audio element.
+          </audio>
+      </td>
+  </tr>
+  <tr>
+      <!-- <td></td> -->
+      <td>Spanish(Unseen)</td>
+      <td>"He reaccionado también, ¿estás loco?"</td>
+      <td>"I reacted too, are you crazy?"</td>
+      <td>
+          <audio controls="controls"  class="small-audio">
+              <source src="speech/Seamless-M4tv2/eps0.5/spa_trans_fbg-adv-408.wav" autoplay />
+              Your browser does not support the audio element.
+          </audio>
+      </td>
+  </tr>
+</table>
+
+
+
+
+
+<hr>
+
+<br>
+
+
+<h4 id="attack-seamless-medium">
+  <font color="0000FF">Attack Seamless Medium</font>
+</h4>
+<table class="custom-table">
+  <tr>
+      <th>Adversarial Speech</th>
+      <th>Translate to</th>
+      <th>Translated Text</th>
+      <th>Corresponding English</th>
+      <th>Translated Speech</th>
+  </tr>
+  <tr>
+      <td rowspan="6" class="merged-cell">
+          <audio controls="controls"  class="small-audio">
+              <source src="speech/Seamless-Medium/eps0.01/hfj-adv-285.wav" autoplay />
+              Your browser does not support the audio element.
+          </audio>
+          <br><p align="left" style="font-size: 18px;">&epsilon; = 0.01</p>
+          <p align="left" style="font-size: 18px;">Original: "He's delighted too with the new premises."</p>
+          <p align="left" style="font-size: 18px;">Target: "Who do you think you're talking to?"</p>
+      </td>
+      <td>English(Seen)</td>
+      <td>"Who do you think you're talking to?"</td>
+      <td>"Who do you think you're talking to?"</td>
+      <td>
+          <audio controls="controls"  class="small-audio">
+              <source src="speech/Seamless-Medium/eps0.01/eng_trans_hfj-adv-285.wav" autoplay />
+              Your browser does not support the audio element.
+          </audio>
+      </td>
+  </tr>
+  <tr>
+      <!-- <td></td> -->
+      <td>Mandarin(Seen)</td>
+      <td>"你认为你和谁说话?"</td>
+      <td>"Who do you think you're talking to?"</td>
+      <td>
+          <audio controls="controls"  class="small-audio">
+              <source src="speech/Seamless-Medium/eps0.01/cmn_trans_hfj-adv-285.wav" autoplay />
+              Your browser does not support the audio element.
+          </audio>
+      </td>
+  </tr>
+  <tr>
+      <!-- <td></td> -->
+      <td>German(Seen)</td>
+      <td>"Mit wem glaubst du, dass du sprichst?"</td>
+      <td>"Who do you think you're talking to?"</td>
+      <td>
+          <audio controls="controls"  class="small-audio">
+              <source src="speech/Seamless-Medium/eps0.01/deu_trans_hfj-adv-285.wav" autoplay />
+              Your browser does not support the audio element.
+          </audio>
+      </td>
+  </tr>
+  <tr>
+      <!-- <td></td> -->
+      <td>French(Seen)</td>
+      <td>"Avec qui pensez-vous que vous parlez ?"</td>
+      <td>"Who do you think you're talking to?"</td>
+      <td>
+          <audio controls="controls"  class="small-audio">
+              <source src="speech/Seamless-Medium/eps0.01/fra_trans_hfj-adv-285.wav" autoplay />
+              Your browser does not support the audio element.
+          </audio>
+      </td>
+  </tr>
+  <tr>
+      <!-- <td></td> -->
+      <td>Italian(Unseen)</td>
+      <td>"Con chi credi di parlare?"</td>
+      <td>"Who do you think you're talking to?"</td>
+      <td>
+          <audio controls="controls"  class="small-audio">
+              <source src="speech/Seamless-Medium/eps0.01/ita_trans_hfj-adv-285.wav" autoplay />
+              Your browser does not support the audio element.
+          </audio>
+      </td>
+  </tr>
+  <tr>
+      <!-- <td></td> -->
+      <td>Spanish(Unseen)</td>
+      <td>"¿Con quién crees que hablas?"</td>
+      <td>"Who do you think you're talking to?
+        "</td>
+      <td>
+          <audio controls="controls"  class="small-audio">
+              <source src="speech/Seamless-Medium/eps0.01/spa_trans_hfj-adv-285.wav" autoplay />
+              Your browser does not support the audio element.
+          </audio>
+      </td>
+  </tr>
+</table>
+<br>
+
+<!-- ################################################################################################################################################################################# -->
+<table class="custom-table">
+<tr>
+    <th>Adversarial Speech</th>
+    <th>Translate to</th>
+    <th>Translated Text</th>
+    <th>Corresponding English</th>
+    <th>Translated Speech</th>
+</tr>
+<tr>
+    <td rowspan="6" class="merged-cell">
+        <audio controls="controls"  class="small-audio">
+            <source src="speech/Seamless-Medium/eps0.1/nrc-adv-1078.wav" autoplay />
+            Your browser does not support the audio element.
+        </audio>
+        <br><p align="left" style="font-size: 18px;">&epsilon; = 0.1</p>
+        <p align="left" style="font-size: 18px;">Original: "He's delighted too with the new premises."</p>
+        <p align="left" style="font-size: 18px;">Target: "Are you insane?"</p>
+    </td>
+    <td>English(Seen)</td>
+    <td>"Are you a lunatic?"</td>
+    <td>"Are you a lunatic?"</td>
+    <td>
+        <audio controls="controls"  class="small-audio">
+            <source src="speech/Seamless-Medium/eps0.1/eng_trans_nrc-adv-1078.wav" autoplay />
+            Your browser does not support the audio element.
+        </audio>
+    </td>
+</tr>
+<tr>
+    <!-- <td></td> -->
+    <td>Mandarin(Seen)</td>
+    <td>"你是疯了吗?"</td>
+    <td>"Are you crazy?"</td>
+    <td>
+        <audio controls="controls"  class="small-audio">
+            <source src="speech/Seamless-Medium/eps0.1/cmn_trans_nrc-adv-1078.wav" autoplay />
+            Your browser does not support the audio element.
+        </audio>
+    </td>
+</tr>
+<tr>
+    <!-- <td></td> -->
+    <td>German(Seen)</td>
+    <td>"Sind Sie verrückt?"</td>
+    <td>"Are you out of your mind?"</td>
+    <td>
+        <audio controls="controls"  class="small-audio">
+            <source src="speech/Seamless-Medium/eps0.1/deu_trans_nrc-adv-1078.wav" autoplay />
+            Your browser does not support the audio element.
+        </audio>
+    </td>
+</tr>
+<tr>
+    <!-- <td></td> -->
+    <td>French(Seen)</td>
+    <td>"Est-ce que vous êtes fou ?"</td>
+    <td>"Are you crazy?"</td>
+    <td>
+        <audio controls="controls"  class="small-audio">
+            <source src="speech/Seamless-Medium/eps0.1/fra_trans_nrc-adv-1078.wav" autoplay />
+            Your browser does not support the audio element.
+        </audio>
+    </td>
+</tr>
+<tr>
+    <!-- <td></td> -->
+    <td>Italian(Unseen)</td>
+    <td>"Sei pazzo?"</td>
+    <td>"Are you out of your mind?"</td>
+    <td>
+        <audio controls="controls"  class="small-audio">
+            <source src="speech/Seamless-Medium/eps0.1/ita_trans_nrc-adv-1078.wav" autoplay />
+            Your browser does not support the audio element.
+        </audio>
+    </td>
+</tr>
+<tr>
+    <!-- <td></td> -->
+    <td>Spanish(Unseen)</td>
+    <td>"¿Estás loco? ¿Te ves?"</td>
+    <td>"Are you crazy? Do you see?"</td>
+    <td>
+        <audio controls="controls"  class="small-audio">
+            <source src="speech/Seamless-Medium/eps0.1/spa_trans_nrc-adv-1078.wav" autoplay />
+            Your browser does not support the audio element.
+        </audio>
+    </td>
+</tr>
+</table>
+<br>
+
+<!-- ################################################################################################################################################################################# -->
+<table class="custom-table">
+<tr>
+  <th>Adversarial Speech</th>
+  <th>Translate to</th>
+  <th>Translated Text</th>
+  <th>Corresponding English</th>
+  <th>Translated Speech</th>
+</tr>
+<tr>
+  <td rowspan="6" class="merged-cell">
+      <audio controls="controls"  class="small-audio">
+          <source src="speech/Seamless-Medium/eps0.5/lss-adv-131.wav" autoplay />
+          Your browser does not support the audio element.
+      </audio>
+      <br><p align="left" style="font-size: 18px;">&epsilon; = 0.5</p>
+      <p align="left" style="font-size: 18px;">Original: "He's delighted too with the new premises."</p>
+      <p align="left" style="font-size: 18px;">Target: "You make me sick."</p>
+  </td>
+  <td>English(Seen)</td>
+  <td>"You're making me sick."</td>
+    <td>"You're making me sick."</td>
+  <td>
+      <audio controls="controls"  class="small-audio">
+          <source src="speech/Seamless-Medium/eps0.5/eng_trans_lss-adv-131.wav" autoplay />
+          Your browser does not support the audio element.
+      </audio>
+  </td>
+</tr>
+<tr>
+  <!-- <td></td> -->
+  <td>Mandarin(Seen)</td>
+  <td>"你让我生病了."</td>
+    <td>"You made me sick."</td>
+  <td>
+      <audio controls="controls"  class="small-audio">
+          <source src="speech/Seamless-Medium/eps0.5/cmn_trans_lss-adv-131.wav" autoplay />
+          Your browser does not support the audio element.
+      </audio>
+  </td>
+</tr>
+<tr>
+  <!-- <td></td> -->
+  <td>German(Seen)</td>
+  <td>"Du machst mich krank."</td>
+    <td>"You are making me sick."</td>
+  <td>
+      <audio controls="controls"  class="small-audio">
+          <source src="speech/Seamless-Medium/eps0.5/deu_trans_lss-adv-131.wav" autoplay />
+          Your browser does not support the audio element.
+      </audio>
+  </td>
+</tr>
+<tr>
+  <!-- <td></td> -->
+  <td>French(Seen)</td>
+  <td>"Vous me mettez malade."</td>
+    <td>"You are making me sick."</td>
+  <td>
+      <audio controls="controls"  class="small-audio">
+          <source src="speech/Seamless-Medium/eps0.5/fra_trans_lss-adv-131.wav" autoplay />
+          Your browser does not support the audio element.
+      </audio>
+  </td>
+</tr>
+<tr>
+  <!-- <td></td> -->
+  <td>Italian(Unseen)</td>
+  <td>"Tu mi metti in malattia."</td>
+  <td>"You make me sick."</td>
+  <td>
+      <audio controls="controls"  class="small-audio">
+          <source src="speech/Seamless-Medium/eps0.5/ita_trans_lss-adv-131.wav" autoplay />
+          Your browser does not support the audio element.
+      </audio>
+  </td>
+</tr>
+<tr>
+  <!-- <td></td> -->
+  <td>Spanish(Unseen)</td>
+  <td>"Tú me haces enfermo."</td>
+  <td>"You make me sick."</td>
+  <td>
+      <audio controls="controls"  class="small-audio">
+          <source src="speech/Seamless-Medium/eps0.5/spa_trans_lss-adv-131.wav" autoplay />
+          Your browser does not support the audio element.
+      </audio>
+  </td>
+</tr>
+</table>
+
+
+
+
+
+<hr>
+
+<br>
+
+              <h4 id="attack-canary">
+                  <font color="0000FF">Attack Canary</font>
+              </h4>
+              <table>
+                  <tr>
+                      <th>Adversarial Speech</th>
+                      <th>Translate to</th>
+                      <th>Translated Text</th>
+                      <th>Corresponding English</th>
+                  </tr>
+                  <tr>
+                      <td rowspan="4" class="merged-cell">
+                        <audio controls="controls"  class="small-audio">
+                        <source src="speech/Canary/eps0.01/dbi-adv-296.wav" autoplay />
+                        Your browser does not support the audio element.
+                        </audio>
+                        <br><p align="left" style="font-size: 18px;">&epsilon; = 0.01</p>
+                        <p align="left" style="font-size: 18px;">Original: "He's delighted too with the new premises."</p>
+                        <p align="left" style="font-size: 18px;">Target: "You make me sick."</p>
+                      </td>
+                      <td>English(Seen)</td>
+                      <td>"You make me ill."</td>
+                      <td>"You make me ill."</td>
+                  </tr>
+                  <tr>
+                      <!-- <td></td> -->
+                      <td>French(Seen)</td>
+                      <td>"Tu me rends malade."</td>
+                      <td>"You are making me sick."</td>
+                  </tr>
+                  <tr>
+                      <!-- <td></td> -->
+                      <td>German(Seen)</td>
+                      <td>"Du machst mich krank."</td>
+                      <td>"You are making me sick."</td>
+                  </tr>
+                  <tr>
+                      <!-- <td></td> -->
+                      <td>Spanish(Unseen)</td>
+                      <td>"Me haces enfermar."</td>
+                      <td>"You make me sick."</td>
+                  </tr>
+              </table>
+
+
+
+              <br>
+              <table>
+                <tr>
+                    <th>Adversarial Speech</th>
+                    <th>Translate to</th>
+                    <th>Translated Text</th>
+                    <th>Corresponding English</th>
+                </tr>
+                <tr>
+                    <td rowspan="4" class="merged-cell">
+                      <audio controls="controls"  class="small-audio">
+                      <source src="speech/Canary/eps0.1/xry-adv-310.wav" autoplay />
+                      Your browser does not support the audio element.
+                      </audio>
+                      <br><p align="left" style="font-size: 18px;">&epsilon; = 0.1</p>
+                      <p align="left" style="font-size: 18px;">Original: "He's delighted too with the new premises."</p>
+                      <p align="left" style="font-size: 18px;">Target: "Who do you think you're talking to?"</p>
+                    </td>
+                    <td>English(Seen)</td>
+                    <td>"Who do you think you're talking to?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                </tr>
+                <tr>
+                    <!-- <td></td> -->
+                    <td>French(Seen)</td>
+                    <td>"À qui pensez-vous que vous parlez ?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                </tr>
+                <tr>
+                    <!-- <td></td> -->
+                    <td>German(Seen)</td>
+                    <td>"Mit wem denkst du, dass du redest?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                </tr>
+                <tr>
+                    <!-- <td></td> -->
+                    <td>Spanish(Unseen)</td>
+                    <td>"¿Con quién crees que estás hablando?"</td>
+                    <td>"Who do you think you're talking to?"</td>
+                </tr>
+            </table>
+
+
+            <br>
+              <table>
+                <tr>
+                    <th>Adversarial Speech</th>
+                    <th>Translate to</th>
+                    <th>Translated Text</th>
+                    <th>Corresponding English</th>
+                </tr>
+                <tr>
+                    <td rowspan="4" class="merged-cell">
+                      <audio controls="controls"  class="small-audio">
+                      <source src="speech/Canary/eps0.5/nui-adv-213.wav" autoplay />
+                      Your browser does not support the audio element.
+                      </audio>
+                      <br><p align="left" style="font-size: 18px;">&epsilon; = 0.5</p>
+                      <p align="left" style="font-size: 18px;">Original: "He's delighted too with the new premises."</p>
+                      <p align="left" style="font-size: 18px;">Target: "Don't waste my time anymore."</p>
+                    </td>
+                    <td>English(Seen)</td>
+                    <td>"Don't waste my time"</td>
+                    <td>"Don't waste my time."</td>
+                </tr>
+                <tr>
+                    <!-- <td></td> -->
+                    <td>French(Seen)</td>
+                    <td>"Ne perdez plus mon temps."</td>
+                    <td>"Don't waste my time anymore."</td>
+                </tr>
+                <tr>
+                    <!-- <td></td> -->
+                    <td>German(Seen)</td>
+                    <td>"Verschwende meine Zeit nicht mehr."</td>
+                    <td>"Don't waste my time anymore."</td>
+                </tr>
+                <tr>
+                    <!-- <td></td> -->
+                    <td>Spanish(Unseen)</td>
+                    <td>"No pierdas mi tiempo."</td>
+                    <td>"Don't waste my time."</td>
+                </tr>
+            </table>
+            <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+           
+            
+                      
+  
+            <br>
+            <h2 id="Other comments">
+              <font color="000093">Other comments</font>
+            </h2>
+            <div class="container">
+              <p>
+                1. We will share <a href="https://github.com/Adv-ST/source_code_of_advst">our code on github (in anonymous manner during paper review process)</a>, which aims to experimental reproduction and verification.
+              </p>
+              <p>
+                <!-- 2. We are double checking the copy-right issue on open-sourcing our pretrained model. This will not take too long. -->
+                2. The proposed adversarial examples are intended for research purposes only and will not be used for any malicious activities.
+              </p>
+            </div>
+          </section>
+        </article>
+      </main>
+
+    </div>
+
+    
+
+<!-- </font> -->
+</body>
+
+</html>
