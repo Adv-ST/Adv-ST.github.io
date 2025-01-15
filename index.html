@@ -5,11 +5,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="Hugo 0.66.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,600" rel="stylesheet" type="text/css"> -->
-  <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css"> -->
-  <!-- <link rel="stylesheet" href="../css/normalize.css">
-  <link rel="stylesheet" href="../css/skeleton.css">
-  <link rel="stylesheet" href="../css/custom.css"> -->
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="alternate" href="index.xml" type="application/rss+xml" title="Speech Research">
@@ -98,6 +94,18 @@
     .merged-cell .small-audio {
       margin-bottom: 10px;
     }
+
+    .card {
+        margin: 0em;
+        padding: 2em;
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+    }
+
+    /* @media (min-width: 80%) {
+        .container {
+            max-width: 85%;
+        }
+        } */
   </style>
 
 </head>
@@ -113,7 +121,7 @@
 <body rightmargin="150" leftmargin="150" topmargin="100" bottommargin="100" line-height:160%>
   <!-- <font size="5"> -->
 
-    <div class="container">
+    <div class="container-fluid" style="width: 72%; margin: 0 auto;">
 
       <header role="banner">
 
@@ -135,40 +143,32 @@
               <section itemprop="entry-text" style="font-size: 18px;">
                 <br>
                 <div class="container">
-                  <center>
-                    <p style="font-size: 28px;"><a href="https://github.com/Adv-ST/source_code_of_advst">[Code]</a></p>
-                  </center>
+                    <center>
+                        <p style="font-size: 28px;">
+                            <a href="https://github.com/Adv-ST/source_code_of_advst">[Code]</a>
+                            <a href="#physical-music" style="margin-left: 50px;">[Video]</a>
+                        </p>
+                    </center>
                 </div>
                        
             
-            <!-- <br> -->
-            <!-- <h2 id="pipeline">
-              <font color="000093">Pipeline</font>
-            </h2> -->
-            <!-- <p style="text-align: justify;"> -->
-            
-              <!-- <figure>
-                <p align="center"><img src="fig2_v2.png" width="100%" class="center" /></p>
-              </figure> -->
-<!-- ################################################################################################################################################################################# -->
-              <!-- <embed src="figure/attack-overview-new-2.pdf" type="application/pdf" width="100%" height="600px" /> -->
-              <!-- <div class="pdf-container">
-                <iframe src="figure/attack-overview-new-2.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf"></iframe>
-              </div> -->
-              <!-- <p class="pdf-link">
-                  <a href="figure/attack-overview-new-2.pdf" target="_blank">Attack overview PDF</a>
-              </p> -->
-              <!-- <figure>
-                <p align="center"><img src="figure/attack-overview-new-2.pdf" width="100%" class="center" /></p>
-              </figure> -->
-              <br>
-              <p>We provide some adversarial music/speech demos here, along with their corresponding translation results.</p>
-              <br>
-              <h2 id="adversarial-music">
-                <font color="000093">Adversarial Music</font>
-              </h2>
-              <br>
+
+              <p>Here, we provide some related adversarial music/speech samples associated with the paper <i>"Exploiting Vulnerabilities in Speech Translation Systems through Targeted Adversarial Attacks"</i>, along with their corresponding translation results. We also provide a demonstration video of a physical test.</p>
+
+
               
+              <br>
+              <br>
+              <div class="card">
+              <h2 align="center" id="adversarial-music">
+                <font color="000093">Adversarial Music Samples</font>
+              </h2>
+              <hr style="width: 50%; border: 1px solid #333; margin: 10px auto;">
+
+              <!-- <br> -->
+              <!-- <br> -->
+              <p>We provide some adversarial music samples here, along with their corresponding translation results.</p>
+              <!-- <br> -->
               <h4 id="attack-seamless-large">
                   <font color="0000FF">Attack Seamless Large</font>
               </h4>
@@ -980,7 +980,7 @@
               <!-- <h2 id="more-generated-music">
                   <font color="0000FF">More Generated Music</font>
               </h2>      -->
-
+            </div>
 
 
 
@@ -1014,10 +1014,16 @@
 
               <br>
               <br>
-              <h2 id="adversarial-perturbation">
-                <font color="000093">Adversarial Perturbation</font>
+              <br>
+              <div class="card">
+              <h2 align="center" id="adversarial-perturbation">
+                <font color="000093">Adversarial Perturbation Samples</font>
               </h2>
-              <br>
+              <hr style="width: 50%; border: 2px solid #333; margin: 10px auto;">
+
+              <!-- <br> -->
+              <!-- <br> -->
+              <p>We provide some adversarial speech samples here, along with their corresponding translation results.</p>
               
               <h4 id="attack-seamless-large">
                   <font color="0000FF">Attack Seamless Large</font>
@@ -2295,48 +2301,57 @@
                 </tr>
             </table>
             <hr>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        </div>
 
 
 
 
         
+
+
+
+
+              <br>
+              <br>
+              <br>
+              <div class="card">
+                <h2 align="center" id="physical-music">
+                    <font color="000093">Physical Attack Demo</font>
+                </h2>
+                <hr style="width: 50%; border: 1px solid #333; margin: 10px auto;">
+                
+                <p>
+                    Here, we present a video demonstrating a case of physical-world attacks. In a meeting room with dimensions of 5.2m × 7.5m × 3.5m, we accessed the speech translation service via a laptop and used its built-in microphone for audio recording. For the adversarial music, we employed a smartphone to play the audio, thereby injecting malicious content. For Canary, we conducted tests using the official translation service. For Seamless Large, we followed the official instructions from the Seamless developers and deployed it locally using the method described in <a href='https://github.com/facebookresearch/seamless_communication/blob/main/demo/m4tv1/app.py'>this link</a> to build a translation server for testing.
+                </p>
+                <center>
+                    <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/7f9QwCKN7os"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </center>
+            </div>
+
+        </div>
+
+
             
            
             
                       
-  
             <br>
-            <h2 id="Other comments">
+            <br>
+            <br>
+            <h2 align="center" id="Other comments">
               <font color="000093">Other comments</font>
             </h2>
-            <div class="container">
+            <hr style="width: 50%; border: 1px solid #333; margin: 10px auto;">
+
+            <div class="container-fluid" style="width: 72%; margin: 0 auto;">
               <p>
                 1. We will share <a href="https://github.com/Adv-ST/source_code_of_advst">our code on github (in anonymous manner during paper review process)</a>, which aims to experimental reproduction and verification.
               </p>
               <p>
-                <!-- 2. We are double checking the copy-right issue on open-sourcing our pretrained model. This will not take too long. -->
                 2. The proposed adversarial examples are intended for research purposes only and will not be used for any malicious activities.
               </p>
             </div>
@@ -2344,7 +2359,7 @@
         </article>
       </main>
 
-    </div>
+ 
 
     
 
