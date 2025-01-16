@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="Hugo 0.66.0" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -13,6 +13,12 @@
   <title>Exploiting Vulnerabilities in Speech Translation Systems through Targeted Adversarial Attacks</title>
 
   <style>
+    .container-fluid {
+        width: 72%;
+        /* max-width: 1200px; */
+        margin: 0 auto;
+        padding: 0 15px;
+        }
     table {
         border-collapse: collapse;
         width: 100%;
@@ -79,7 +85,7 @@
         width: 100% !important;
         border-collapse: collapse !important;
         font-size: 0.9em !important;
-        min-width: 800px; 
+        min-width: auto; 
     }
     
     .custom-table th,
@@ -159,7 +165,125 @@
     }
 
 
-  </style>
+    @media screen and (orientation: portrait) {
+        main {
+            min-height: 100vh;
+            transform-origin: top center;
+        }
+
+        @media (max-width: 480px) {
+            main {
+                height: 166.666667vh;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 768px) {
+            main {
+                height: 153.846154vh;
+            }
+        }
+
+        body {
+            transform: scale(0.7); 
+            transform-origin: top center; 
+            width: 142.857143%; 
+            margin-left: -21.428571%; 
+        }
+
+        .container-fluid {
+            max-width: none; 
+            width: 100%;
+        }  
+
+        .custom-table {
+            font-size: 16px; 
+        }
+        
+        .small-audio {
+            width: 250px;
+            height: 70px;
+        }
+    }
+
+    @media screen and (orientation: portrait) and (max-width: 480px) {
+        body {
+            transform: scale(0.6);
+            width: 166.666667%; 
+            margin-left: -33.333333%;
+        }
+    }
+
+    @media screen and (orientation: portrait) and (min-width: 481px) and (max-width: 768px) {
+        body {
+            transform: scale(0.65);
+            width: 153.846154%;  /* 100/0.65 */
+            margin-left: -26.923077%;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            }
+    }
+
+
+    .video-container {
+        margin: 30px auto;
+        width: 60%;
+        max-width: 1200px;
+        }
+
+    .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9  */
+        height: 0;
+        overflow: hidden;
+        }
+
+    .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        }
+    @media screen and (orientation: portrait) {
+    .video-container {
+        transform: scale(1.2);
+        margin: 30px auto;
+        width: 90vw;
+        max-width: 800px;
+    }
+    
+    .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+    }
+    
+    .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+    }
+
+
+    @media screen and (orientation: portrait) and (max-width: 480px) {
+    .video-container {
+        transform: scale(1.4);
+        width: 95vw;
+    }
+    }
+
+
+    
+
+</style>
 
 
 
@@ -199,13 +323,15 @@
       </header>
       <main role="main">
         <article itemscope itemtype="https://schema.org/BlogPosting">
-          <br>
-          <div class="title-container">
+        <br>
+        <div class="container-fluid" style="margin: 0 auto;">
+
+          <!-- <div class="title-container"> -->
           <h1 itemprop="headline" align="center">
             <font color="000093" size="7">Exploiting Vulnerabilities in Speech Translation Systems through Targeted Adversarial Attacks
             </font>
           </h1>
-        </div>          
+        <!-- </div>           -->
         <br>
 
       
@@ -224,18 +350,18 @@
                     </center>
                 </div>
             
-        <div class="container-fluid" style="width: 72%; margin: 0 auto;">
-              <p>Here, we provide some related adversarial music/speech samples associated with the paper <i>"Exploiting Vulnerabilities in Speech Translation Systems through Targeted Adversarial Attacks"</i>, along with their corresponding translation results. We also provide a demonstration video of a physical test.</p>
-        </div>
+        <!-- <div class="container-fluid" style="margin: 0 auto;"> -->
+              <p style="margin-left: 25px; margin-right: 25px;">Here, we provide some related adversarial music/speech samples associated with the paper <i>"Exploiting Vulnerabilities in Speech Translation Systems through Targeted Adversarial Attacks"</i>, along with their corresponding translation results. We also provide a demonstration video of a physical test.</p>
+        <!-- </div> -->
 
-        <div class="container-fluid" style="width: 80%; margin: 0 auto;">     
+        <!-- <div class="container-fluid" style="margin: 0 auto;">      -->
               <br>
               <br>
               <div class="card">
               <h2 align="center" id="adversarial-music">
                 <font color="000093">Adversarial Music Samples</font>
               </h2>
-              <hr style="width: 50%; border: 1px solid #333; margin: 10px auto;">
+              <hr style="width: 50%; border: 2px solid #333; margin: 10px auto;">
 
               <!-- <br> -->
               <!-- <br> -->
@@ -2390,21 +2516,24 @@
                 <h2 align="center" id="physical-music">
                     <font color="000093">Physical Attack Demo</font>
                 </h2>
-                <hr style="width: 50%; border: 1px solid #333; margin: 10px auto;">
+                <hr style="width: 50%; border: 2px solid #333; margin: 10px auto;">
                 
                 <p>
                     Here, we present a video demonstrating a case of physical-world attacks. In a meeting room with dimensions of 5.2m × 7.5m × 3.5m, we accessed the speech translation service via a laptop and used its built-in microphone for audio recording. For the adversarial music, we employed a smartphone to play the audio, thereby injecting malicious content. For Canary, we conducted tests using the official translation service. For Seamless Large, we followed the official instructions from the Seamless developers and deployed it locally using the method described in <a href='https://github.com/facebookresearch/seamless_communication/blob/main/demo/m4tv1/app.py'>this link</a> to build a translation server for testing.
                 </p>
-                <center>
-                    <iframe width="560" height="315"
+                <div class="video-container">
+                    <div class="video-wrapper">
+                      <iframe 
                         src="https://www.youtube.com/embed/7f9QwCKN7os"
-                        title="YouTube video player" frameborder="0"
+                        title="YouTube video player" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </center>
+                        allowfullscreen>
+                      </iframe>
+                    </div>
+                  </div>
             </div>
 
-        </div>
+        
 
 
             
@@ -2417,20 +2546,21 @@
             <h2 align="center" id="Other comments">
               <font color="000093">Other comments</font>
             </h2>
-            <hr style="width: 50%; border: 1px solid #333; margin: 10px auto;">
+            <hr style="width: 50%; border: 2px solid #333; margin: 10px auto;">
 
-            <div class="container-fluid" style="width: 72%; margin: 0 auto;">
+            <!-- <div class="container-fluid" style="margin: 0 auto;"> -->
               <p>
                 1. We will share <a href="https://github.com/Adv-ST/source_code_of_advst">our code on github (in anonymous manner during paper review process)</a>, which aims to experimental reproduction and verification.
               </p>
               <p>
                 2. The proposed adversarial examples are intended for research purposes only and will not be used for any malicious activities.
               </p>
-            </div>
+            <!-- </div> -->
           </section>
+        </div>
+
         </article>
       </main>
-
  
 
     
