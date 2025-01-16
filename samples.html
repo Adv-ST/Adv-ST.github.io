@@ -47,20 +47,55 @@
     }
 
 
+
+    .table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; 
+        margin-bottom: 1em;
+    }
+
+
+    .table-wrapper::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .table-wrapper::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+    }
+
+    .table-wrapper::-webkit-scrollbar-thumb {
+        background: #ddd;
+        border-radius: 4px;
+    }
+
+    .table-wrapper::-webkit-scrollbar-thumb:hover {
+        background: #bbb;
+    }
+
+
     .custom-table {
         width: 100% !important;
         border-collapse: collapse !important;
         font-size: 0.9em !important;
+        min-width: 800px; 
     }
+    
     .custom-table th,
     .custom-table td {
         padding: 6px !important;
         text-align: center !important;
         border: none !important;
+        /* white-space: nowrap;  */
     }
+    
     .custom-table th {
         background-color: #f2f2f2 !important;
         font-size: 0.95em !important;
+        position: sticky; 
+        top: 0;
+        z-index: 1;
     }
     .custom-table .col-1,
     .custom-table .col-2 {
@@ -106,7 +141,43 @@
             max-width: 85%;
         }
         } */
+
+    .title-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    h1 {
+        max-width: 1300px; 
+        margin: 0 auto;
+        text-align: center;
+        word-wrap: break-word; 
+        overflow-wrap: break-word;
+        line-height: 1.2; 
+        padding: 50 0px;
+    }
+
+
   </style>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const tables = document.getElementsByClassName('custom-table');
+        
+        Array.from(tables).forEach(table => {
+            if (!table.parentElement.classList.contains('table-wrapper')) {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'table-wrapper';
+                
+                table.parentNode.insertBefore(wrapper, table);
+                wrapper.appendChild(table);
+            }
+        });
+    });
+    </script>
 
 </head>
 
@@ -121,7 +192,7 @@
 <body rightmargin="150" leftmargin="150" topmargin="100" bottommargin="100" line-height:160%>
   <!-- <font size="5"> -->
 
-    <div class="container-fluid" style="width: 72%; margin: 0 auto;">
+    
 
       <header role="banner">
 
@@ -129,11 +200,13 @@
       <main role="main">
         <article itemscope itemtype="https://schema.org/BlogPosting">
           <br>
+          <div class="title-container">
           <h1 itemprop="headline" align="center">
             <font color="000093" size="7">Exploiting Vulnerabilities in Speech Translation Systems through Targeted Adversarial Attacks
             </font>
           </h1>
-          <br>
+        </div>          
+        <br>
 
       
 
@@ -144,19 +217,18 @@
                 <br>
                 <div class="container">
                     <center>
-                        <p style="font-size: 28px;">
-                            <a href="https://github.com/Adv-ST/source_code_of_advst">[Code]</a>
-                            <a href="#physical-music" style="margin-left: 50px;">[Video]</a>
+                        <p style="font-size: 25px;">
+                            <a href="https://github.com/Adv-ST/source_code_of_advst" style="margin-left: 25px; margin-right: 25px;">[Code]</a>
+                            <a href="#physical-music" style="margin-left: 25px; margin-right: 25px;">[Video]</a>
                         </p>
                     </center>
                 </div>
-                       
             
-
+        <div class="container-fluid" style="width: 72%; margin: 0 auto;">
               <p>Here, we provide some related adversarial music/speech samples associated with the paper <i>"Exploiting Vulnerabilities in Speech Translation Systems through Targeted Adversarial Attacks"</i>, along with their corresponding translation results. We also provide a demonstration video of a physical test.</p>
+        </div>
 
-
-              
+        <div class="container-fluid" style="width: 80%; margin: 0 auto;">     
               <br>
               <br>
               <div class="card">
@@ -353,7 +425,7 @@
               <h4 id="attack-seamless-expressive">
                   <font color="0000FF">Attack Seamless Expressive</font>
               </h4>
-              <table>
+              <table class="custom-table">
                   <tr>
                       <th>Adversarial Music</th>
                       <th>Translate to</th>
@@ -441,7 +513,7 @@
               </table>
 
               <!-- 2 -->
-              <table>
+              <table class="custom-table">
                 <tr>
                     <th>Adversarial Music</th>
                     <th>Translate to</th>
@@ -535,7 +607,7 @@
               <h4 id="attack-seamless-m4tv2">
                   <font color="0000FF">Attack Seamless M4tv2</font>
               </h4>
-              <table>
+              <table class="custom-table">
                   <tr>
                       <th>Adversarial Music</th>
                       <th>Translate to</th>
@@ -623,7 +695,7 @@
               </table>
 
               <!-- 2 -->
-              <table>
+              <table class="custom-table">
                 <tr>
                     <th>Adversarial Music</th>
                     <th>Translate to</th>
@@ -716,7 +788,7 @@
               <h4 id="attack-seamless-medium">
                   <font color="0000FF">Attack Seamless Medium</font>
               </h4>
-              <table>
+              <table class="custom-table">
                   <tr>
                       <th>Adversarial Music</th>
                       <th>Translate to</th>
@@ -804,7 +876,7 @@
               </table>
 
               <!-- 2 -->
-              <table>
+              <table class="custom-table">
                 <tr>
                     <th>Adversarial Music</th>
                     <th>Translate to</th>
@@ -899,7 +971,7 @@
               <h4 id="attack-canary">
                   <font color="0000FF">Attack Canary</font>
               </h4>
-              <table>
+              <table class="custom-table">
                   <tr>
                       <th>Adversarial Music</th>
                       <th>Translate to</th>
@@ -937,7 +1009,7 @@
               </table>
 
               <!-- 2 -->
-              <table>
+              <table class="custom-table">
                 <tr>
                     <th>Adversarial Music</th>
                     <th>Translate to</th>
@@ -2173,7 +2245,7 @@
               <h4 id="attack-canary">
                   <font color="0000FF">Attack Canary</font>
               </h4>
-              <table>
+              <table class="custom-table">
                   <tr>
                       <th>Adversarial Speech</th>
                       <th>Translate to</th>
@@ -2217,7 +2289,7 @@
 
 
               <br>
-              <table>
+              <table class="custom-table">
                 <tr>
                     <th>Adversarial Speech</th>
                     <th>Translate to</th>
@@ -2260,7 +2332,7 @@
 
 
             <br>
-              <table>
+              <table class="custom-table">
                 <tr>
                     <th>Adversarial Speech</th>
                     <th>Translate to</th>
