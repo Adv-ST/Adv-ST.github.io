@@ -351,7 +351,7 @@
                 </div>
             
         <!-- <div class="container-fluid" style="margin: 0 auto;"> -->
-              <p style="margin-left: 25px; margin-right: 25px;">Here, we provide some related adversarial music/speech samples associated with the paper <i>"Exploiting Vulnerabilities in Speech Translation Systems through Targeted Adversarial Attacks"</i>, along with their corresponding translation results. We also provide a demonstration video of a physical test.</p>
+              <p style="margin-left: 25px; margin-right: 25px;">Here, we provide some related adversarial music/speech samples associated with the paper <i>"Exploiting Vulnerabilities in Speech Translation Systems through Targeted Adversarial Attacks"</i>, along with their corresponding translation results. Additionally, we provide a demonstration video showcasing several cases of physical-world attacks.</p>
         <!-- </div> -->
 
         <!-- <div class="container-fluid" style="margin: 0 auto;">      -->
@@ -2519,7 +2519,9 @@
                 <hr style="width: 50%; border: 2px solid #333; margin: 10px auto;">
                 
                 <p>
-                    Here, we present a video demonstrating a case of physical-world attacks. In a meeting room with dimensions of 5.2m × 7.5m × 3.5m, we accessed the speech translation service via a laptop and used its built-in microphone for audio recording. For the adversarial music, we employed a smartphone to play the audio, thereby injecting malicious content. For Canary, we conducted tests using the official translation service. For Seamless Large, we followed the official instructions from the Seamless developers and deployed it locally using the method described in <a href='https://github.com/facebookresearch/seamless_communication/blob/main/demo/m4tv1/app.py'>this link</a> to build a translation server for testing.
+                    In the over-the-air physical test experiments presented in the paper, we generate six adversarial music samples for each attack and conduct repeated testing to ensure stability. This results in the testing of 60 adversarial music samples for each target language. 
+
+                    Additionally, we further present a video here demonstrating a case of physical-world attacks. In a meeting room with dimensions of 5.2m × 7.5m × 3.5m, we accessed the speech translation service via a laptop and used its built-in microphone for audio recording. For the adversarial music, we employed a smartphone to play the audio, thereby injecting malicious content. For Canary, we conducted tests using the official translation service. For Seamless Large, we followed the official instructions from the Seamless developers and deployed it locally using the method described in <a href='https://github.com/facebookresearch/seamless_communication/blob/main/demo/m4tv1/app.py'>this link</a> to build a translation server for testing.
                 </p>
                 <div class="video-container">
                     <div class="video-wrapper">
